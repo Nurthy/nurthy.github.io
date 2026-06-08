@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+<nav class="site-nav navbar navbar-expand-lg" id="mainNav">
+  <div class="container-fluid px-3 px-lg-5">
+    <a class="brand-logo navbar-brand" href="home.html">
+    <img src="assets/logo-horizontal.png" alt="Home" width="160" height="60">
+    </a>
+    <button class="navbar-toggler border-0 shadow-none" type="button"
+            data-bs-toggle="collapse" data-bs-target="#navMenu"
+            aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav mx-auto gap-1 mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link active" href="home.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="product.html">Products</a></li>
+        <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+      </ul>
+      <a href="contact.html" class="nav-link btn-nav-contact ms-lg-2">Contact Us</a>
+    </div>
+  </div>
+</nav>
+<section class="home-hero">
+  <button class="hero-carousel-btn left" onclick="moveHeroCarousel(-1)">‹</button>
+  
+  <div class="hero-carousel-track" id="heroCarouselTrack">
+    <div class="hero-carousel-slide" style="background-image: url('promotions/welcome0.png');"></div>
+    <div class="hero-carousel-slide" style="background-image: url('promotions/welcome1.png');"></div>
+    <div class="hero-carousel-slide" style="background-image: url('promotions/welcome2.png');"></div>
+    <div class="hero-carousel-slide" style="background-image: url('promotions/welcome3.png');"></div>
+    <div class="hero-carousel-slide" style="background-image: url('promotions/welcome4.png');"></div>
+  </div>
+  
+  <button class="hero-carousel-btn right" onclick="moveHeroCarousel(1)">›</button>
+  
+  <div class="hero-carousel-dots" id="heroCarouselDots">
+    <span class="dot active" onclick="goToSlide(0)"></span>
+    <span class="dot" onclick="goToSlide(1)"></span>
+    <span class="dot" onclick="goToSlide(2)"></span>
+    <span class="dot" onclick="goToSlide(3)"></span>
+    <span class="dot" onclick="goToSlide(4)"></span>
+  </div>
+</section>
+<footer class="site-footer">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <h5>Do Nots Donuts</h5>
+        <p>Bringing Filipino flavors to your favorite treat.<br>May pagmamahal, may pagasa.</p>
+      </div>
+      <div class="col-lg-4">
+        <h5>Quick Links</h5>
+        <ul class="list-unstyled">
+          <li><a href="home.html">Home</a></li>
+          <li><a href="product.html">Products</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-4">
+        <h5>Find Us</h5>
+        <p>San Fabrica, Padayon Province,<br>Region XV, Philippines</p>
+        <p>📞 09-1234567890</p>
+        <p>✉️ hello@donots.ph</p>
+      </div>
+    </div>
+    <hr class="footer-hr"/>
+    <p class="text-center footer-copy mb-0">© 2026 Do Nots Donuts — Duo Two. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+
+<script>
+/* ====== Hero Carousel ====== */
+let currentSlide = 0;
+const totalSlides = 5;
+
+function moveHeroCarousel(dir) {
+  currentSlide = (currentSlide + dir + totalSlides) % totalSlides;
+  updateCarousel();
+}
+
+function goToSlide(index) {
+  currentSlide = index;
+  updateCarousel();
+}
+
+function updateCarousel() {
+  const track = document.getElementById('heroCarouselTrack');
+  track.style.transform = `translateX(${-currentSlide * 100}%)`;
+  
+  // Update dots
+  document.querySelectorAll('.hero-carousel-dots .dot').forEach((dot, i) => {
+    dot.classList.toggle('active', i === currentSlide);
+  });
+}
+
+/* Auto-advance carousel every 5 seconds */
+setInterval(() => {
+  moveHeroCarousel(1);
+}, 5000);
+
+/* Navbar scroll effect */
+const nav = document.getElementById('mainNav');
+addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 50));
+</script>
+</body>
+</html>

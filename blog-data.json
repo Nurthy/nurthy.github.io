@@ -1,0 +1,41 @@
+{
+  "promo": {
+    "title": "Pamana: A Festival of Legacy in Padayon",
+    "cat": "Community Events",
+    "catColor": "rgba(238,110,50,.12)",
+    "catTxt": "#EB7032",
+    "date": "June 5, 2026",
+    "read": "4 min read",
+    "lead": "Every June, Padayon Province comes alive with the annual Pamana Festival — a celebration not just of heritage, but of passing down stories, skills, and traditions from one generation to the next. Do Nots Donuts is proud to be a co-host of this vibrant event.",
+    "heroBg": "linear-gradient(135deg, #D97E2E 0%, #F5A623 70%, #FFD166 100%)",
+    "blogImg": "blog_images/festival.jpg",
+    "heroImg": "blog_images/festival.jpg",
+    "content": "<h2>The Spirit of Pamana</h2>\n<p>Rooted in the ancestral belief that knowledge and values are not passed through textbooks, but through hands-on practice and shared stories, the Pamana Festival honors the everyday acts of family life — like making ube halaya, weaving abacá, or teaching children how to mend traditional wooden crafts and bamboo baskets.</p>\n<p>Do Nots Donuts is not just a donut shop but we are also a community hub. And this year, we are hosting a special \"Pamana Corner\" at the festival, where local elders share stories over tea and ube halaya, and children learn how to make simple kakanin using traditional recipes passed down from their grandparents.</p>\n<div class=\"post-quote\">\n<p>\"My abuela taught me how to make ube halaya with no sugar, just love. Now, I teach my daughter the same. That’s what Pamana means — not just food, but memory.\"</p>\n</div>\n<h3>What to Expect at the Festival</h3>\n<ul>\n  <li>Live storytelling sessions</li>\n  <li>Hands-on workshops: \"Make Your Own Ube Halaya from Scratch\"</li>\n  <li>Community art wall where visitors can appreciate local crafts and artistry</li>\n  <li>Free Donuts at the Do Nots Donuts booth (limited to 100 servings and only has Palawan Special Ube and Cheese and Bacolod Piaya Twist flavors)</li>\n</ul>\n<p>Join us on <strong>June 13-14, 2026</strong> at the Capitol Park. Bring your family and your appetite for tradition. Together, we <b>do not</b> ignore what makes Padayon truly unique.</p>"
+  },
+  "offering": {
+    "title": "The Free Ube Halaya Initiative for Students",
+    "cat": "Community Outreach",
+    "catColor": "rgba(102,187,102,.12)",
+    "catTxt": "#66B166",
+    "date": "June 8, 2026",
+    "read": "3 min read",
+    "lead": "In a province where students often walk long distances to school, Do Nots Donuts is launching a simple yet powerful offering — free ube halaya for students during school hours, as a gesture of care and recognition of their daily struggles.",
+    "heroBg": "linear-gradient(135deg, #4A9F4A 0%, #66B166 70%, #8BC34A 100%)",
+    "blogImg": "blog_images/ube_halaya.jpg",
+    "heroImg": "blog_images/ube_halaya.jpg",
+    "content": "<h2>A Sweet Gesture, a Deep Commitment</h2>\n<p>Every day, approximately 7,000 students in Padayon Province walk to school through villages with uneven or unpaved muddy roads, sometimes carrying heavy backpacks, and often having little meals. Do Nots Donuts believes that even the smallest act of kindness can uplift a child’s life — and flavor, especially comfort food, can be a source of joy.</p>\n<p>Our new <strong>Free Ube Halaya Initiative</strong> will provide small, warm servings of ube halaya at public school gates during break time and lunch hours — from <strong>9:00 AM to 1:00 PM</strong> — at select schools, including public and barangay ones.</p>\n<div class=\"post-quote\">\n<p>\"I didn’t expect that I could get a sweet, purple drink just by showing up at school, even when I'm late. It made me feel seen even with my struggles po. My teacher said it’s a sign of respect and kindness po.\"</p>\n</div>\n<h3>How It Works</h3>\n<ul>\n  <li>Students receive a small, non-perishable serving of ube halaya (with no sugar and preservatives) at school gates</li>\n  <li>Halaya is made locally with traditional recipes, using ube from nearby farms</li>\n  <li>Each serving is labeled with a QR code linking to a short video about various subjects, from math to science and Philippine history.</li>\n</ul>\n<p>This initiative is part of our broader mission: to make food that <b>do not</b> only feed our student and family, but bridges them to the land they call home. </p>"
+  },
+    "update": {
+    "title": "Our First Partnership with the Padayon Farmers’ Co-op",
+    "cat": "Local Sourcing",
+    "catColor": "rgba(200,60,200,.12)",
+    "catTxt": "#C83CCC",
+    "date": "June 10, 2026",
+    "read": "5 min read",
+    "lead": "We’re proud to announce a new partnership with the Padayon Farmers’ Co-op — a network of 180 small-scale farmers who grow native crops, including ube, abacá, and kahit, right in the heart of the province.",
+    "heroBg": "linear-gradient(135deg, #9E39B0 0%, #C83CCC 70%, #E98BFE 100%)",
+    "blogImg": "blog_images/partnership.png",
+    "heroImg": "blog_images/partnership.png",
+    "content": "<h2>From Soil to Shop: A Local Loop</h2>\n<p>For years, Do Nots Donuts has sourced ingredients from our local vendors — but this year, we are taking a bold new step. We are now officially partnering with the <strong>Padayon Farmers Cooperative</strong>, a cooperative of farmers independent from hacienda owners and big corporations who grow and process traditional crops using low-cost and low-impact methods.</p>\n<p>Through this partnership, we are committed to sourcing 80% of our ube and abacá for our products directly from the co-op — ensuring fair prices, quality, and environmental responsibility. This includes ube for our halaya, and abacá for our eco-friendly packaging.</p>\n<div class=\"post-quote\">\n<p>\"Before, we were just selling to the restaurants or malls. Now, we’re selling to the people who live here — and we’re proud to be part of the local economy.\"</p>\n</div>\n<h3>What This means for you:</h3>\n<ul>\n  <li>Every ube halaya and abacá-based product now comes from local farms</li>\n  <li>Our packaging now features a small label: \"Made in Padayon Province\"</li>\n  <li>Future quarterly updates will share stories from our farmers — including how they grow ube, what challenges they face, and how they use the harvest</li>\n</ul>\n<p>This is more than a supply chain shift — it’s a commitment to local identity. In a province where agriculture is the backbone of life, Do Nots Donuts <b>does not</b> forget to proudly stand with the people who grow our food.</p>"
+  }
+}

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Products — Do Nots Donuts</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+
+<body class="product-page">
+
+<!-- ===================== NAVBAR ===================== -->
+<nav class="site-nav navbar navbar-expand-lg navbar-light" id="mainNav">
+  <div class="container-fluid px-3 px-lg-5">
+    <a class="brand-logo navbar-brand" href="home.html">
+      <img src="assets/logo-horizontal.png" alt="Home" width="160" height="60">
+    </a>
+    <button class="navbar-toggler border-0 shadow-none" type="button"
+            data-bs-toggle="collapse" data-bs-target="#navMenu"
+            aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav mx-auto gap-1 mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link active" href="product.html">Products</a></li>
+        <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+      </ul>
+      <a href="contact.html" class="nav-link btn-nav-contact ms-lg-2">Contact Us</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===================== HERO ===================== -->
+<section class="product-hero">
+  <h1>Filipino-Cultured Donuts</h1>
+  <p>Inspired by Filipino desserts, street snacks, and traditions — every donut tells a story.</p>
+</section>
+
+<!-- ===================== PRODUCT CAROUSEL ===================== -->
+<section id="productGallery" class="carousel-wrapper">
+  <button class="carousel-btn left" onclick="prevCarouselItem()">‹</button>
+  <div class="carousel-track" id="carouselTrack">
+
+    <!-- 1 -->
+    <div class="product-card" onclick="openDetail(0)">
+      <img src="donuts/camiguinpastel.png" alt="Camiguin Pastel Cream" class="product-donut-img" />
+      <h3>Camiguin Pastel Cream</h3>
+    </div>
+
+    <!-- 2 -->
+    <div class="product-card" onclick="openDetail(1)">
+      <img src="donuts/benguetstrawberries.png" alt="Benguet Strawberries and Cheese" class="product-donut-img" />
+      <h3>Benguet Strawberries and Cheese</h3>
+    </div>
+
+    <!-- 3 -->
+    <div class="product-card" onclick="openDetail(2)">
+      <img src="donuts/palawanspecial.png" alt="Palawan Special Ube and Cheese" class="product-donut-img" />
+      <h3>Palawan Special Ube and Cheese</h3>
+    </div>
+
+    <!-- 4 -->
+    <div class="product-card" onclick="openDetail(3)">
+      <img src="donuts/zamboangaknickerbocker.png" alt="Zamboanga Knickerbocker Cruller" class="product-donut-img" />
+      <h3>Zamboanga Knickerbocker Cruller</h3>
+    </div>
+
+    <!-- 5 -->
+    <div class="product-card" onclick="openDetail(4)">
+      <img src="donuts/guimarasmango.png" alt="Guimaras Mango Float" class="product-donut-img" />
+      <h3>Guimaras Mango Float</h3>
+    </div>
+
+    <!-- 6 -->
+    <div class="product-card" onclick="openDetail(5)">
+      <img src="donuts/pampangasans.png" alt="Pampanga Sans Rival" class="product-donut-img" />
+      <h3>Pampanga Sans Rival</h3>
+    </div>
+
+    <!-- 7 -->
+    <div class="product-card" onclick="openDetail(6)">
+      <img src="donuts/bacolodpiyaya.png" alt="Bacolod Piaya Twist" class="product-donut-img" />
+      <h3>Bacolod Piaya Twist</h3>
+    </div>
+
+    <!-- 8 -->
+    <div class="product-card" onclick="openDetail(7)">
+      <img src="donuts/malabonturon.png" alt="Malabon Turon Foster" class="product-donut-img" />
+      <h3>Malabon Turon Foster</h3>
+    </div>
+
+    <!-- 9 -->
+    <div class="product-card" onclick="openDetail(8)">
+      <img src="donuts/boholbuko.png" alt="Bohol Buko and Cheese" class="product-donut-img" />
+      <h3>Bohol Buko and Cheese</h3>
+    </div>
+
+  </div>
+  <button class="carousel-btn right" onclick="nextCarouselItem()">›</button>
+</section>
+
+<!-- ===================== PRODUCT DETAIL VIEW ===================== -->
+<section id="productDetail">
+  <div class="detail-box">
+    <span class="back-btn" onclick="closeDetail()">← Back to Products</span>
+    <h2 id="detailTitle"></h2>
+    <div class="detail-donut" id="detailDonut"></div>
+    <p id="detailText"></p>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <h5>Do Nots Donuts</h5>
+        <p>Bringing Filipino flavors to your favorite treat.<br>May pagmamahal, may pagasa.</p>
+      </div>
+      <div class="col-lg-4">
+        <h5>Quick Links</h5>
+        <ul class="list-unstyled">
+          <li><a href="home.html">Home</a></li>
+          <li><a href="product.html">Products</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-4">
+        <h5>Find Us</h5>
+        <p>San Fabrica, Padayon Province,<br>Region XV, Philippines</p>
+        <p>📞 09-1234567890</p>
+        <p>✉️ hello@donots.ph</p>
+      </div>
+    </div>
+    <hr class="footer-hr"/>
+    <p class="text-center footer-copy mb-0">© 2026 Do Nots Donuts — Duo Two. All rights reserved.</p>
+  </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<script>
+  /* ==============================
+     AUTO-PLAYING CAROUSEL LOGIC
+  ============================== */
+  let carouselIndex = 0;
+  const totalProducts = 9;
+  let cardWidth = 300; // Width of each product card + gap (280px + 1.6rem)
+  let autoplayInterval;
+
+  function getCardWidth() {
+    if (window.innerWidth < 768) {
+      return window.innerWidth - 16; // Full width minus padding on mobile
+    }
+    return 300;
+  }
+
+  function updateCarouselPosition() {
+    const track = document.getElementById('carouselTrack');
+    cardWidth = getCardWidth();
+    const offset = -carouselIndex * cardWidth;
+    track.style.transform = `translateX(${offset}px)`;
+  }
+
+  function nextCarouselItem() {
+    carouselIndex = (carouselIndex + 1) % totalProducts;
+    updateCarouselPosition();
+    resetAutoplay();
+  }
+
+  function prevCarouselItem() {
+    carouselIndex = (carouselIndex - 1 + totalProducts) % totalProducts;
+    updateCarouselPosition();
+    resetAutoplay();
+  }
+
+  // Handle window resize
+  window.addEventListener('resize', updateCarouselPosition);
+
+
+  /* ==============================
+     PRODUCT DETAILS DATA
+  ============================== */
+  const products = [
+    ["Camiguin Pastel Cream", "A delicate, handcrafted cream inspired by Camiguin’s sweet traditions. Do not let ancestral recipes be replaced by mass-produced, impersonal treats. Every bite honors the slow, mindful art of making food with family hands."],
+    ["Benguet Strawberries and Cheese", " Inspired by the sweetness of Benguet, province of CAR. Fresh, sun-ripened strawberries paired with creamy local cheese. Do not allow mountain delicacies to be diluted by industrial farming or synthetic substitutes. Taste the purity of nature, grown with care and passed through generations."],
+    ["Palawan Special Ube and Cheese", " Inspired by the Islands of Palawan, MIMAROPA. The iconic ube blended with smooth, locally sourced cheese. Do not let tradition be lost in flavor trends — protect the deep-rooted heritage of ube as a symbol of Filipino resilience and identity."],
+    ["Zamboanga Knickerbocker Cruller", " Inspired by the fruity flavor of Zamboanga, Zamboanga Peninsula. A harmonious blend of bold, layered flavors inspired by a historic dessert. Do not let cultural recipes be reduced to mere imitation — honor the original, unaltered forms of food that define our roots."],
+    ["Guimaras Mango Float", " Inspired by the touch of Guimaras mangoes, in Western Visayas. A tropical delight featuring real, hand-picked mango. Do not sacrifice flavor for flavor show — every bite must come from the land, not from imported, over-processed versions of nature's gifts."],
+    ["Pampanga Sans Rival", " Inspired by the ingenuity of Pampanga in Central Luzon, it offers layers of smooth, rich cream inspired by the famed Sans Rival cake. Do not let tradition be overshadowed by commercialization — preserve the depth, patience, and pride behind every handmade layer."],
+    ["Bacolod Piaya Twist", " Inspired by Piayas in Bacolod City, Negros Occidental. It’s a twist on the beloved chocolate and sesame piaya, rooted in local flavors. Do not erase the spirit of street food — protect the authenticity of community-made treats that feed the soul."],
+    ["Malabon Turon Foster", " Inspired by the crisp and sweetness of Malabon, a city in Metro Manila (NCR). It’ has caramelized banana and jackfruit wrapped in caramel sweetness — a street favorite reborn. Do not replace local ingredients with foreign substitutes — every bite must come from the soil of our own provinces."],
+    ["Bohol Buko and Cheese", " Inspired by the province of Bohol in Central Visayas. Do not let tropical bounty be exploited — celebrate the land and its people, and protect the balance of nature in every harvest."]
+  ];
+
+  const imageMap = [
+    "camiguinpastel.png",
+    "benguetstrawberries.png",
+    "palawanspecial.png",
+    "zamboangaknickerbocker.png",
+    "guimarasmango.png",
+    "pampangasans.png",
+    "bacolodpiyaya.png",
+    "malabonturon.png",
+    "boholbuko.png"
+  ];
+
+  function openDetail(i) {
+    document.getElementById('productGallery').style.display = "none";
+    document.getElementById('productDetail').style.display = "block";
+    document.getElementById('detailTitle').innerText = products[i][0];
+    document.getElementById('detailText').innerText = products[i][1];
+    document.getElementById('detailDonut').innerHTML = `<img src="donuts/${imageMap[i]}" alt="${products[i][0]}" class="detail-donut-img" />`;
+    window.scrollTo(0, 0);
+  }
+
+  function closeDetail() {
+    document.getElementById('productDetail').style.display = "none";
+    document.getElementById('productGallery').style.display = "block";
+  }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us — Do Nots Donuts</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
+
+  <style>
+    /* ============================================================
+       CONTACT PAGE — Local styles
+       ============================================================ */
+
+    /* ── Hero ── */
+    .contact-hero {
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(
+          135deg,
+          #120601 0%,
+          #2E1106 18%,
+          #5C2508 38%,
+          #8B4010 60%,
+          #A85E20 80%,
+          #C48030 100%
+        );
+      padding: 5rem 0 4rem;
+      z-index: 1;
+    }
+
+    /* Capiz window grid */
+    .contact-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        repeating-linear-gradient(0deg,
+          transparent 0px, transparent 33px,
+          rgba(220,170,60,.22) 33px, rgba(220,170,60,.22) 35px),
+        repeating-linear-gradient(90deg,
+          transparent 0px, transparent 33px,
+          rgba(220,170,60,.22) 33px, rgba(220,170,60,.22) 35px);
+      background-size: 35px 35px;
+      pointer-events: none;
+    }
+
+    /* SVG noise grain */
+    .contact-hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.68' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23g)' opacity='0.06'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 200px 200px;
+      pointer-events: none;
+    }
+
+    .contact-hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+    }
+
+    .contact-hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      color: #fff;
+      line-height: 1.1;
+      margin-bottom: .6rem;
+    }
+
+    .contact-hero h1 em { color: #F4A832; font-style: italic; }
+
+    .contact-hero p {
+      color: rgba(255,255,255,.78);
+      font-size: 1.1rem;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    /* Decorative diamond corner (matches blog-hero::after) */
+    .contact-hero .hero-diamond {
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 280px;
+      height: 280px;
+      border: 3px solid rgba(220,165,55,.28);
+      transform: rotate(45deg);
+      pointer-events: none;
+      box-shadow:
+        inset 0 0 0 30px rgba(200,140,30,.05),
+        0 0 0 30px rgba(200,140,30,.05);
+    }
+
+    /* ── Contact Section ── */
+    .contact-section {
+      padding: 5rem 0 6rem;
+      position: relative;
+      z-index: 1;
+      background: transparent;
+    }
+
+    /* ── Form Card ── */
+    .contact-form-card {
+      background: #fff;
+      border-radius: 24px;
+      padding: 2.8rem 2.5rem;
+      box-shadow: 0 12px 48px rgba(60,25,5,.13);
+      border: 1.5px solid rgba(180,120,40,.14);
+      position: relative;
+    }
+
+    /* top capiz-amber accent bar */
+    .contact-form-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 2rem; right: 2rem;
+      height: 3px;
+      background: linear-gradient(90deg, #8B4010, #C48030, #8B4010);
+      border-radius: 0 0 4px 4px;
+    }
+
+    .contact-form-card h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.75rem;
+      color: #2E1106;
+      margin-bottom: 1.6rem;
+    }
+
+    /* ── Form Fields ── */
+    .cf-group {
+      margin-bottom: 1.3rem;
+      position: relative;
+    }
+
+    .cf-label {
+      display: block;
+      font-weight: 800;
+      font-size: .85rem;
+      color: #5C2508;
+      letter-spacing: .5px;
+      margin-bottom: .4rem;
+    }
+
+    .cf-label span.req { color: #A83020; margin-left: 2px; }
+
+    .cf-input,
+    .cf-select,
+    .cf-textarea {
+      width: 100%;
+      padding: .72rem 1.1rem;
+      border: 2px solid rgba(60,25,5,.15);
+      border-radius: 12px;
+      font-family: 'Nunito', sans-serif;
+      font-size: .95rem;
+      font-weight: 700;
+      color: #2E1106;
+      background: #FDFAF4;
+      outline: none;
+      transition: border-color .25s, box-shadow .25s, background .25s;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .cf-input:focus,
+    .cf-select:focus,
+    .cf-textarea:focus {
+      border-color: #8B4010;
+      background: #fff;
+      box-shadow: 0 0 0 3px rgba(139,64,16,.14);
+    }
+
+    .cf-select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24'%3E%3Cpath fill='%235C2508' d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right .9rem center;
+      padding-right: 2.5rem;
+      cursor: pointer;
+    }
+
+    .cf-textarea {
+      resize: vertical;
+      min-height: 140px;
+    }
+
+    /* Validation states */
+    .cf-input.valid,
+    .cf-select.valid,
+    .cf-textarea.valid {
+      border-color: #4A8030;
+      background: #F8FDF5;
+    }
+
+    .cf-input.invalid,
+    .cf-select.invalid,
+    .cf-textarea.invalid {
+      border-color: #A83020;
+      background: #FDF5F4;
+      animation: shake .32s ease;
+    }
+
+    @keyframes shake {
+      0%,100% { transform: translateX(0); }
+      25%      { transform: translateX(-5px); }
+      75%      { transform: translateX(5px); }
+    }
+
+    /* Error / success messages */
+    .cf-msg {
+      font-size: .78rem;
+      font-weight: 800;
+      margin-top: .35rem;
+      display: none;
+      align-items: center;
+      gap: .3rem;
+    }
+
+    .cf-msg.error  { color: #A83020; display: flex; }
+    .cf-msg.success{ color: #4A8030; display: flex; }
+
+    /* Char counter */
+    .cf-char {
+      font-size: .75rem;
+      font-weight: 700;
+      color: #aaa;
+      text-align: right;
+      margin-top: .25rem;
+      transition: color .25s;
+    }
+
+    .cf-char.warn { color: #C48030; }
+    .cf-char.over { color: #A83020; }
+
+    /* ── Submit Button ── */
+    .btn-send {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .55rem;
+      background: linear-gradient(135deg, #5C2508, #8B4010);
+      color: #fff;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      font-size: 1rem;
+      letter-spacing: .5px;
+      padding: .85rem 2.4rem;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      transition: background .3s, transform .25s, box-shadow .3s, opacity .25s;
+      margin-top: .4rem;
+    }
+
+    .btn-send:hover:not(:disabled) {
+      background: linear-gradient(135deg, #8B4010, #C48030);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(92,37,8,.35);
+    }
+
+    .btn-send:disabled {
+      opacity: .45;
+      cursor: not-allowed;
+    }
+
+    .btn-send .send-spinner {
+      display: none;
+      width: 18px;
+      height: 18px;
+      border: 2.5px solid rgba(255,255,255,.4);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin .7s linear infinite;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .btn-send.sending .send-text    { display: none; }
+    .btn-send.sending .send-spinner { display: block; }
+
+    /* ── Success Overlay ── */
+    .success-overlay {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem 1rem;
+      min-height: 340px;
+    }
+
+    .success-overlay.show { display: flex; }
+
+    .success-icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #5C2508, #C48030);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2rem;
+      color: #fff;
+      margin-bottom: 1.4rem;
+      animation: popIn .45s cubic-bezier(.18,.89,.32,1.28);
+    }
+
+    @keyframes popIn {
+      from { transform: scale(0); opacity: 0; }
+      to   { transform: scale(1); opacity: 1; }
+    }
+
+    .success-overlay h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.7rem;
+      color: #2E1106;
+      margin-bottom: .6rem;
+    }
+
+    .success-overlay p { color: #888; max-width: 320px; }
+
+    .btn-send-another {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      margin-top: 1.2rem;
+      background: transparent;
+      border: 2px solid rgba(92,37,8,.25);
+      color: #5C2508;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: .9rem;
+      padding: .55rem 1.4rem;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: background .25s, color .25s;
+    }
+
+    .btn-send-another:hover {
+      background: #5C2508;
+      color: #fff;
+    }
+
+    /* ── Info Card ── */
+    .contact-info-card {
+      background: linear-gradient(150deg, #2E1106 0%, #5C2508 60%, #8B4010 100%);
+      border-radius: 24px;
+      padding: 2.8rem 2.2rem;
+      color: #fff;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Capiz grid on info card */
+    .contact-info-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        repeating-linear-gradient(0deg,
+          transparent, transparent 28px,
+          rgba(220,170,60,.12) 28px, rgba(220,170,60,.12) 30px),
+        repeating-linear-gradient(90deg,
+          transparent, transparent 28px,
+          rgba(220,170,60,.12) 28px, rgba(220,170,60,.12) 30px);
+      background-size: 30px 30px;
+      pointer-events: none;
+    }
+
+    .contact-info-card > * { position: relative; z-index: 1; }
+
+    .contact-info-card h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.55rem;
+      color: #F4C860;
+      margin-bottom: .5rem;
+    }
+
+    .contact-info-card p.tagline {
+      color: rgb(255, 255, 255);
+      font-size: .9rem;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    /* Info items */
+    .info-item {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      align-items: flex-start;
+    }
+
+    .info-icon {
+      width: 44px;
+      height: 44px;
+      background: rgba(244,168,50,.18);
+      border: 1.5px solid rgba(244,168,50,.3);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      color: #F4A832;
+      flex-shrink: 0;
+    }
+
+    .info-text { line-height: 1; }
+    .info-text strong {
+      display: block;
+      font-size: .78rem;
+      font-weight: 900;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.45);
+      margin-bottom: .35rem;
+    }
+
+    .info-text span {
+      font-size: .95rem;
+      font-weight: 700;
+      color: rgba(255,255,255,.9);
+      line-height: 1.5;
+    }
+
+    /* Hours table */
+    .hours-table {
+      background: rgba(255,255,255,.06);
+      border-radius: 14px;
+      padding: 1.1rem 1.3rem;
+      margin-top: 2rem;
+    }
+
+    .hours-table h6 {
+      font-size: .75rem;
+      font-weight: 900;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: rgb(255, 255, 255);
+      margin-bottom: .8rem;
+    }
+
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: .875rem;
+      font-weight: 700;
+      padding: .3rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.363);
+      color: rgba(255,255,255,.8);
+    }
+
+    .hours-row:last-child { border-bottom: none; }
+    .hours-row .day  { color: rgb(255, 255, 255); }
+    .hours-row .time { color: #F4C860; }
+
+    /* Social row */
+    .info-socials {
+      display: flex;
+      gap: .65rem;
+      margin-top: 2rem;
+    }
+
+    .info-socials a {
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,.1);
+      border: 1.5px solid rgba(255,255,255,.15);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,.7);
+      font-size: 1.1rem;
+      text-decoration: none;
+      transition: background .25s, color .25s, transform .25s;
+    }
+
+    .info-socials a:hover {
+      background: #F4A832;
+      color: #2E1106;
+      transform: translateY(-3px);
+    }
+
+    /* ── Deco donuts (same as blog hero) ── */
+    .contact-deco {
+      position: absolute;
+      border-radius: 50%;
+      opacity: .25;
+      animation: floatContact 5s ease-in-out infinite;
+    }
+
+    @keyframes floatContact {
+      0%,100% { transform: translateY(0) rotate(0deg); }
+      50%      { transform: translateY(-18px) rotate(8deg); }
+    }
+
+    .contact-deco-1 {
+      width: 90px; height: 90px;
+      background: radial-gradient(circle at 40% 40%, #f7c660, #c87a30);
+      right: 5%; top: 12%;
+      animation-delay: 0s;
+    }
+
+    .contact-deco-2 {
+      width: 60px; height: 60px;
+      background: radial-gradient(circle at 40% 40%, #b07ed6, #5B2E8A);
+      right: 18%; top: 55%;
+      animation-delay: 1.6s;
+    }
+
+    .contact-deco-3 {
+      width: 48px; height: 48px;
+      background: conic-gradient(#FF8FB1 0deg 90deg, #9B50D0 90deg 180deg, #5DD0EA 180deg 270deg, #F4A832 270deg 360deg);
+      right: 9%; top: 72%;
+      animation-delay: 3.1s;
+    }
+
+    .contact-deco-1::after,
+    .contact-deco-2::after,
+    .contact-deco-3::after {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%,-50%);
+      border-radius: 50%;
+      background: rgba(30,42,74,.7);
+    }
+
+    .contact-deco-1::after { width: 26px; height: 26px; }
+    .contact-deco-2::after { width: 18px; height: 18px; }
+    .contact-deco-3::after { width: 14px; height: 14px; }
+
+    /* ── Map placeholder ── */
+    .map-placeholder {
+      border-radius: 20px;
+      overflow: hidden;
+      height: 280px;
+      background: linear-gradient(135deg, #2E1106 0%, #5C2508 50%, #8B4010 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,.6);
+      font-size: .9rem;
+      font-weight: 700;
+      gap: .6rem;
+      border: 2px solid rgba(180,120,40,.18);
+      margin-top: 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .map-placeholder::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        repeating-linear-gradient(0deg,
+          transparent, transparent 22px,
+          rgba(220,170,60,.1) 22px, rgba(220,170,60,.1) 24px),
+        repeating-linear-gradient(90deg,
+          transparent, transparent 22px,
+          rgba(220,170,60,.1) 22px, rgba(220,170,60,.1) 24px);
+      background-size: 24px 24px;
+    }
+
+    .map-placeholder i { font-size: 2.4rem; color: #F4A832; position: relative; }
+    .map-placeholder span { position: relative; }
+
+    /* ── FAQ strip ── */
+    .faq-section {
+      padding: 4rem 0 5rem;
+      background: rgba(80,40,8,.06);
+      position: relative;
+      z-index: 1;
+    }
+
+    .faq-section .sec-eyebrow { background: var(--gold); color: var(--dark); }
+
+    .faq-item {
+      border: 2px solid rgba(139,64,16,.12);
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: .75rem;
+      background: #fff;
+      transition: border-color .25s;
+    }
+
+    .faq-item:hover { border-color: rgb(139, 63, 16); }
+
+    .faq-q {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.1rem 1.4rem;
+      cursor: pointer;
+      font-weight: 800;
+      color: #2E1106;
+      font-size: .97rem;
+      user-select: none;
+      gap: 1rem;
+    }
+
+    .faq-q .faq-icon {
+      width: 28px;
+      height: 28px;
+      background: rgba(139,64,16,.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #8B4010;
+      font-size: .85rem;
+      flex-shrink: 0;
+      transition: background .25s, transform .3s;
+    }
+
+    .faq-item.open .faq-icon {
+      background: #8B4010;
+      color: #fff;
+      transform: rotate(45deg);
+    }
+
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .35s ease, padding .35s;
+      font-size: .92rem;
+      color: #666;
+      line-height: 1.75;
+    }
+
+    .faq-item.open .faq-a {
+      max-height: 200px;
+      padding: 0 1.4rem 1.2rem;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 991px) {
+      .contact-info-card { margin-top: 2rem; }
+    }
+
+    @media (max-width: 768px) {
+      .contact-form-card { padding: 2rem 1.4rem; }
+      .contact-deco { display: none; }
+    }
+  </style>
+</head>
+
+<body class="contact-page" style="background:#EDD9A3; overflow-x:hidden;">
+
+<!-- ===================== NAVBAR ===================== -->
+<nav class="site-nav navbar navbar-expand-lg navbar-light" id="mainNav">
+  <div class="container-fluid px-3 px-lg-5">
+    <a class="brand-logo navbar-brand" href="home.html">
+      <img src="assets/logo-horizontal.png" alt="Home" width="160" height="60">
+    </a>
+    <button class="navbar-toggler border-0 shadow-none" type="button"
+            data-bs-toggle="collapse" data-bs-target="#navMenu"
+            aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav mx-auto gap-1 mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="product.html">Products</a></li>
+        <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+      </ul>
+      <a href="contact.html" class="nav-link btn-nav-contact ms-lg-2 active">Contact Us</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===================== HERO ===================== -->
+<section class="contact-hero">
+  <!-- Decorative donuts -->
+  <div class="contact-deco contact-deco-1"></div>
+  <div class="contact-deco contact-deco-2"></div>
+  <div class="contact-deco contact-deco-3"></div>
+  <div class="hero-diamond"></div>
+
+  <div class="container contact-hero-content">
+    <div class="sec-eyebrow mb-3">Get in Touch</div>
+    <h1>Let's Talk <em>Donuts</em></h1>
+    <p>May tanong ka? Order inquiry, arrangements, or just want to say hi? We're always here for you!</p>
+  </div>
+</section>
+
+<!-- ===================== CONTACT SECTION ===================== -->
+<section class="contact-section">
+  <div class="container">
+    <div class="row g-5 align-items-start">
+
+      <!-- ── FORM COLUMN ── -->
+      <div class="col-lg-7">
+        <div class="contact-form-card reveal">
+
+          <!-- Form view -->
+          <div id="formView">
+            <h2>Send Us a Message</h2>
+
+            <div class="row g-3">
+
+              <!-- Full Name -->
+              <div class="col-sm-6">
+                <div class="cf-group">
+                  <label class="cf-label" for="cf-name">Full Name <span class="req">*</span></label>
+                  <input class="cf-input" type="text" id="cf-name"
+                         placeholder="e.g. Maria Santos" autocomplete="name"/>
+                  <div class="cf-msg" id="cf-name-msg"></div>
+                </div>
+              </div>
+
+              <!-- Email -->
+              <div class="col-sm-6">
+                <div class="cf-group">
+                  <label class="cf-label" for="cf-email">Email Address <span class="req">*</span></label>
+                  <input class="cf-input" type="email" id="cf-email"
+                         placeholder="you@example.com" autocomplete="email"/>
+                  <div class="cf-msg" id="cf-email-msg"></div>
+                </div>
+              </div>
+
+              <!-- Phone -->
+              <div class="col-sm-6">
+                <div class="cf-group">
+                  <label class="cf-label" for="cf-phone">Phone Number <span style="font-weight:600;color:#aaa;font-size:.78rem;">(optional)</span></label>
+                  <input class="cf-input" type="tel" id="cf-phone"
+                         placeholder="09XX-XXX-XXXX" autocomplete="tel"/>
+                  <div class="cf-msg" id="cf-phone-msg"></div>
+                </div>
+              </div>
+
+              <!-- Subject -->
+              <div class="col-sm-6">
+                <div class="cf-group">
+                  <label class="cf-label" for="cf-subject">Subject <span class="req">*</span></label>
+                  <select class="cf-select" id="cf-subject">
+                    <option value="" disabled selected>— Select a topic —</option>
+                    <option value="order">Order Inquiry</option>
+                    <option value="bulk">Bulk / Catering Order</option>
+                    <option value="partnership">Partnership / Collaboration</option>
+                    <option value="feedback">Feedback</option>
+                    <option value="general">General Question</option>
+                    <option value="other">Other</option>
+                  </select>
+                  <div class="cf-msg" id="cf-subject-msg"></div>
+                </div>
+              </div>
+
+              <!-- Message -->
+              <div class="col-12">
+                <div class="cf-group">
+                  <label class="cf-label" for="cf-message">Your Message <span class="req">*</span></label>
+                  <textarea class="cf-textarea" id="cf-message"
+                            placeholder="Tell us what's on your mind... (min. 20 characters)"
+                            maxlength="600"></textarea>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="cf-msg" id="cf-message-msg"></div>
+                    <div class="cf-char ms-auto" id="cf-char">0 / 600</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Privacy note -->
+              <div class="col-12">
+                <div class="cf-group">
+                  <label class="d-flex align-items-start gap-2" style="cursor:pointer;">
+                    <input type="checkbox" id="cf-agree" style="margin-top:3px;accent-color:#8B4010;width:16px;height:16px;flex-shrink:0;"/>
+                    <span style="font-size:.82rem;color:#888;font-weight:700;line-height:1.5;">
+                      I agree that Do Nots Donuts may use my information to respond to my inquiry. Do Nots Donuts will handle data securely and privately for business purposes only.</a>.
+                      <span class="req">*</span>
+                    </span>
+                  </label>
+                  <div class="cf-msg" id="cf-agree-msg"></div>
+                </div>
+              </div>
+
+              <!-- Submit -->
+              <div class="col-12">
+                <button class="btn-send" id="btnSend" type="button" onclick="submitForm()">
+                  <span class="send-text"><i class="bi bi-send-fill me-1"></i> Send Message</span>
+                  <span class="send-spinner"></span>
+                </button>
+              </div>
+
+            </div>
+          </div><!-- /#formView -->
+
+          <!-- Success view -->
+          <div class="success-overlay" id="successView">
+            <div class="success-icon">🍩</div>
+            <h3>Message Sent!</h3>
+            <p>Maraming Salamat! We'll get back to you within 1–2 business days. Check your inbox for a confirmation.</p>
+            <button class="btn-send-another" onclick="resetForm()">
+              <i class="bi bi-arrow-counterclockwise"></i> Send Another Message
+            </button>
+          </div>
+
+        </div><!-- /.contact-form-card -->
+      </div>
+
+      <!-- ── INFO COLUMN ── -->
+      <div class="col-lg-5">
+        <div class="contact-info-card reveal">
+          <h3>Find Us</h3>
+          <p class="tagline">Contact, share, or reach us on our social media pages! We love to hear from you.</p>
+
+          <div class="info-item">
+            <div class="info-icon"><i class="bi bi-geo-alt-fill"></i></div>
+            <div class="info-text">
+              <strong>Address</strong>
+              <span>San Fabrica, Padayon Province,<br>Region XV, Philippines</span>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon"><i class="bi bi-telephone-fill"></i></div>
+            <div class="info-text">
+              <strong>Phone</strong>
+              <span>09-1234567890</span>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon"><i class="bi bi-envelope-fill"></i></div>
+            <div class="info-text">
+              <strong>Email</strong>
+              <span>hello@donots.ph</span>
+            </div>
+          </div>
+
+          <!-- Hours -->
+          <div class="hours-table">
+            <h6>Store Hours</h6>
+            <div class="hours-row"><span class="day">Mon – Fri</span><span class="time">8:00 AM – 8:00 PM</span></div>
+            <div class="hours-row"><span class="day">Saturday</span><span class="time">9:00 AM – 9:00 PM</span></div>
+            <div class="hours-row"><span class="day">Sunday</span><span class="time">10:00 AM – 6:00 PM</span></div>
+          </div>
+
+          <!-- Socials -->
+          <div class="info-socials">
+            <a href="#" title="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" title="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" title="TikTok"><i class="bi bi-tiktok"></i></a>
+          </div>
+
+        </div><!-- /.contact-info-card -->
+      </div>
+
+    </div><!-- /.row -->
+  </div><!-- /.container -->
+</section>
+
+<!-- ===================== FAQ SECTION ===================== -->
+<section class="faq-section">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <span class="sec-eyebrow">Got Questions?</span>
+      <h2 class="sec-title mt-2">Frequently Asked Questions (FaQ)</h2>
+      <p class="sec-sub">Quick answers to the things we hear most often.</p>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+
+        <div class="faq-item reveal" onclick="toggleFaq(this)">
+          <div class="faq-q">
+            Do you offer delivery?
+            <span class="faq-icon"><i class="bi bi-plus"></i></span>
+          </div>
+          <div class="faq-a">
+            Yes! We deliver within our province via GrabFood, Foodpanda, and our own riders. For areas outside the province, please contact us directly for arrangements.
+          </div>
+        </div>
+
+        <div class="faq-item reveal" onclick="toggleFaq(this)">
+          <div class="faq-q">
+            Can I place a bulk or catering order?
+            <span class="faq-icon"><i class="bi bi-plus"></i></span>
+          </div>
+          <div class="faq-a">
+            Absolutely! We cater for birthdays, events, weddings and fiestas. Minimum of 2 dozen for bulk orders. Contact us at least 3 days in advance so we can prepare your order fresh.
+          </div>
+        </div>
+
+        <div class="faq-item reveal" onclick="toggleFaq(this)">
+          <div class="faq-q">
+            Are your donuts made fresh daily?
+            <span class="faq-icon"><i class="bi bi-plus"></i></span>
+          </div>
+          <div class="faq-a">
+            Always! Every donut is crafted fresh every morning using locally-sourced ingredients. We don't serve reheated donuts here.
+          </div>
+        </div>
+
+        <div class="faq-item reveal" onclick="toggleFaq(this)">
+          <div class="faq-q">
+            Do you have gluten-free or vegan options?
+            <span class="faq-icon"><i class="bi bi-plus"></i></span>
+          </div>
+          <div class="faq-a">
+            We're currently developing a gluten-free line! In the meantime, some of our fillings use plant-based ingredients. Kindly message us and we'll find something for you.
+          </div>
+        </div>
+
+        <div class="faq-item reveal" onclick="toggleFaq(this)">
+          <div class="faq-q">
+            How quickly will you reply to my message?
+            <span class="faq-icon"><i class="bi bi-plus"></i></span>
+          </div>
+          <div class="faq-a">
+            We aim to reply within 1–2 business days via email. For urgent inquiries, give us a call or DM us on on our social media pages — we're usually faster there.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <h5>Do Nots Donuts</h5>
+        <p>Bringing Filipino flavors to your favorite treat.<br>May pagmamahal, may pagasa.</p>
+      </div>
+      <div class="col-lg-4">
+        <h5>Quick Links</h5>
+        <ul class="list-unstyled">
+          <li><a href="home.html">Home</a></li>
+          <li><a href="product.html">Products</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-4">
+        <h5>Find Us</h5>
+        <p>San Fabrica, Padayon Province,<br>Region XV, Philippines</p>
+        <p>📞 09-1234567890</p>
+        <p>✉️ hello@donots.ph</p>
+      </div>
+    </div>
+    <hr class="footer-hr"/>
+    <p class="text-center footer-copy mb-0">© 2026 Do Nots Donuts — Duo Two. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+/* ========================================================
+   NAVBAR SCROLL
+   ======================================================== */
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 50));
+
+/* ========================================================
+   SCROLL REVEAL
+   ======================================================== */
+function initReveal() {
+  const els = document.querySelectorAll('.reveal:not(.visible)');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 90);
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  els.forEach(el => obs.observe(el));
+}
+initReveal();
+
+/* ========================================================
+   PAPER TEXTURE on body (same as blog/product)
+   ======================================================== */
+(function applyPaperTexture() {
+  const s = document.createElement('style');
+  s.textContent = `
+    body.contact-page::before, body.contact-page::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+    body.contact-page::before {
+      background:
+        repeating-linear-gradient(91deg,
+          transparent 0px, transparent 2px,
+          rgba(100,55,10,.028) 2px, rgba(100,55,10,.028) 3px,
+          transparent 3px, transparent 8px),
+        repeating-linear-gradient(179deg,
+          transparent 0px, transparent 3px,
+          rgba(100,55,10,.022) 3px, rgba(100,55,10,.022) 4px,
+          transparent 4px, transparent 11px),
+        radial-gradient(ellipse 90% 70% at 50% 50%, transparent 35%, rgba(80,35,5,.09) 100%);
+    }
+    body.contact-page::after {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='paper'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23paper)' opacity='0.055'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 300px 300px;
+    }
+  `;
+  document.head.appendChild(s);
+})();
+
+/* ========================================================
+   FORM VALIDATION
+   ======================================================== */
+const rules = {
+  'cf-name': {
+    required: true,
+    validate(v) {
+      if (!v) return 'Full name is required.';
+      if (v.length < 2) return 'Name must be at least 2 characters.';
+      if (!/^[a-zA-ZÀ-ÿ\s\-'.]+$/.test(v)) return 'Please enter a valid name.';
+      return null;
+    }
+  },
+  'cf-email': {
+    required: true,
+    validate(v) {
+      if (!v) return 'Email address is required.';
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) return 'Please enter a valid email address.';
+      return null;
+    }
+  },
+  'cf-phone': {
+    required: false,
+    validate(v) {
+      if (!v) return null; // optional
+      if (!/^[0-9+\-\s()]{7,15}$/.test(v)) return 'Enter a valid phone number.';
+      return null;
+    }
+  },
+  'cf-subject': {
+    required: true,
+    validate(v) {
+      if (!v) return 'Please select a subject.';
+      return null;
+    }
+  },
+  'cf-message': {
+    required: true,
+    validate(v) {
+      if (!v) return 'Message cannot be empty.';
+      if (v.length < 20) return `At least 20 characters required (${v.length}/20).`;
+      if (v.length > 600) return 'Message must be under 600 characters.';
+      return null;
+    }
+  }
+};
+
+function showMsg(id, text, type) {
+  const el = document.getElementById(id + '-msg');
+  if (!el) return;
+  el.className = 'cf-msg ' + (text ? type : '');
+  el.innerHTML = text
+    ? `<i class="bi bi-${type === 'error' ? 'exclamation-circle' : 'check-circle'}-fill"></i> ${text}`
+    : '';
+}
+
+function validateField(id) {
+  const el = document.getElementById(id);
+  if (!el) return true;
+  const rule = rules[id];
+  if (!rule) return true;
+  const val = el.value.trim();
+  const err = rule.validate(val);
+  if (err) {
+    el.classList.remove('valid');
+    el.classList.add('invalid');
+    showMsg(id, err, 'error');
+    return false;
+  } else {
+    el.classList.remove('invalid');
+    if (val || rule.required) el.classList.add('valid');
+    showMsg(id, null, '');
+    return true;
+  }
+}
+
+/* Live validation on blur */
+Object.keys(rules).forEach(id => {
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.addEventListener('blur', () => validateField(id));
+  el.addEventListener('input', () => {
+    if (el.classList.contains('invalid')) validateField(id);
+  });
+});
+
+/* Char counter for message */
+const msgArea = document.getElementById('cf-message');
+const charEl  = document.getElementById('cf-char');
+msgArea.addEventListener('input', () => {
+  const len = msgArea.value.length;
+  charEl.textContent = `${len} / 600`;
+  charEl.className = 'cf-char ms-auto' + (len > 560 ? ' over' : len > 480 ? ' warn' : '');
+});
+
+/* Checkbox validation */
+function validateAgree() {
+  const cb = document.getElementById('cf-agree');
+  if (!cb.checked) {
+    showMsg('cf-agree', 'Please accept to continue.', 'error');
+    return false;
+  }
+  showMsg('cf-agree', null, '');
+  return true;
+}
+
+document.getElementById('cf-agree').addEventListener('change', validateAgree);
+
+/* ── Submit ── */
+function submitForm() {
+  const fields = Object.keys(rules);
+  let allValid = fields.every(id => validateField(id));
+  if (!validateAgree()) allValid = false;
+
+  if (!allValid) {
+    // Scroll to first error
+    const firstErr = document.querySelector('.cf-input.invalid, .cf-select.invalid, .cf-textarea.invalid');
+    if (firstErr) firstErr.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    return;
+  }
+
+  /* Simulate sending (no backend) */
+  const btn = document.getElementById('btnSend');
+  btn.classList.add('sending');
+  btn.disabled = true;
+
+  setTimeout(() => {
+    btn.classList.remove('sending');
+    document.getElementById('formView').style.display    = 'none';
+    document.getElementById('successView').classList.add('show');
+  }, 1600);
+}
+
+/* ── Reset ── */
+function resetForm() {
+  document.getElementById('successView').classList.remove('show');
+  document.getElementById('formView').style.display = '';
+  const btn = document.getElementById('btnSend');
+  btn.disabled = false;
+
+  Object.keys(rules).forEach(id => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.value = '';
+    el.classList.remove('valid','invalid');
+    showMsg(id, null, '');
+  });
+
+  document.getElementById('cf-agree').checked = false;
+  showMsg('cf-agree', null, '');
+  charEl.textContent = '0 / 600';
+  charEl.className = 'cf-char ms-auto';
+}
+
+/* ========================================================
+   FAQ ACCORDION
+   ======================================================== */
+function toggleFaq(item) {
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+</script>
+</body>
+</html>
